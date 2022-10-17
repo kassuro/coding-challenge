@@ -1,0 +1,16 @@
+dist
+node_modules
+.output
+.nuxt
+.github
+coverage
+*.log
+nuxt.d.ts
+.output
+.DS_Store
+.vscode
+.md
+package.json
+package-lock.json
+generated
+
