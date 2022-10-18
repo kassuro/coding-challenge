@@ -5,5 +5,6 @@ export default defineNuxtConfig({
   runtimeConfig: {
     catApiBaseUrl: '',
     catApiKey: '',
+    dogApiBaseUrl: '',
   },
 });
