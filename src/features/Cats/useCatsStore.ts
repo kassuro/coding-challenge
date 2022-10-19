@@ -6,12 +6,14 @@ import { useCatApi } from '@/features/Cats/useCatApi';
 interface CatStoreState {
   data: CatImage[];
   filterValue: string;
+  selected: CatImage | null;
 }
 
 export const useCatsStore = defineStore('CatStore', {
   state: (): CatStoreState => ({
     data: [],
     filterValue: '',
+    selected: null,
   }),
 
   actions: {

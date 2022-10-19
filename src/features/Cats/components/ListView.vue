@@ -18,6 +18,7 @@
         <ImageListItem
           :src="isCatImage(item) ? item.url : ''"
           alt="A picture of a dog"
+          @click="selectCat(item)"
         />
       </template>
     </ImageList>
@@ -28,5 +29,15 @@
 import { useCatsStore } from '@/features/Cats/useCatsStore';
 import { isCatImage } from '@/features/Cats/types';
 
+const router = useRouter();
+
 const catsStore = useCatsStore();
+
+const selectCat = (item: unknown) => {
+  if (isCatImage(item)) {
+    catsStore.selected = item;
+
+    router.push('details/cat');
+  }
+};
 </script>
