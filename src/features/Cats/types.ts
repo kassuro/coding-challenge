@@ -15,3 +15,7 @@ export interface CatImage {
   breeds: CatBreed[];
   categories: CatCategories[];
 }
+
+export const isCatImage = (val: CatImage | unknown): val is CatImage =>
+  Object.prototype.hasOwnProperty.call(val, 'id') &&
+  Object.prototype.hasOwnProperty.call(val, 'url');
