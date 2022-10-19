@@ -1,6 +1,15 @@
-# Nuxt 3 Minimal Starter
+# Kreuzfahrtberater Frontend-Challenge
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+This is my (partial) solution to the coding challenge from Kreuzfahrtberater.
+
+To see the instructions for the challenge open the `project_challenge` pdf file in the root dir.
+
+# Instructions for usage
+
+## Set up env variables
+
+This project needs some variables in an `.env` file. I provide an `.env.dist` file in the repo.
+Just copy, rename and fill it.
 
 ## Setup
 
@@ -38,5 +47,3 @@ Locally preview production build:
 ```bash
 npm run preview
 ```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
