@@ -5,11 +5,13 @@ import { useCatApi } from '@/features/Cats/useCatApi';
 
 interface CatStoreState {
   data: CatImage[];
+  filterValue: string;
 }
 
 export const useCatsStore = defineStore('CatStore', {
   state: (): CatStoreState => ({
     data: [],
+    filterValue: '',
   }),
 
   actions: {
@@ -19,6 +21,20 @@ export const useCatsStore = defineStore('CatStore', {
       const result = await loadImages();
 
       this.data = result.data.value;
+    },
+  },
+
+  getters: {
+    filteredImageLinks(state) {
+      const search = state.filterValue.toLowerCase();
+
+      if (search === '') {
+        return state.data;
+      }
+
+      return state.data.filter((img) =>
+        img.breeds.some((breed) => breed.name.toLowerCase().includes(search)),
+      );
     },
   },
 });
