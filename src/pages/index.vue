@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TabGroup>
+    <TabGroup :selectedIndex="globalStore.activeTab" @change="tabChange">
       <TabList>
         <Tab as="template" v-slot="{ selected }">
           <button
@@ -49,9 +49,15 @@ import { useDogsStore } from '@/features/Dogs/useDogsStore';
 import { useCatsStore } from '@/features/Cats/useCatsStore';
 import CatList from '@/features/Cats/components/ListView.vue';
 import DogList from '@/features/Dogs/components/ListView.vue';
+import { useGlobalStore } from '@/features/global/useGlobalStore';
 
 const catsStore = useCatsStore();
 const dogStore = useDogsStore();
+const globalStore = useGlobalStore();
+
+const tabChange = (i: number) => {
+  globalStore.activeTab = i;
+};
 
 dogStore.loadImages();
 catsStore.loadImages();
