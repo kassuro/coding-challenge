@@ -9,11 +9,11 @@ export const useCatApi = (): UseCatApi => {
   const config = useRuntimeConfig();
 
   const headers: Record<string, string> = {
-    'x-api-key': config.catApiKey,
+    'x-api-key': config.public.catApiKey,
   };
 
   const loadImages = (limit?: number) =>
-    useFetch<CatImage[]>(`${config.catApiBaseUrl}images/search`, {
+    useFetch<CatImage[]>(`${config.public.catApiBaseUrl}images/search`, {
       headers,
       query: {
         limit: limit ?? 50,

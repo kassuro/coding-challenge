@@ -9,7 +9,9 @@ export const useDogApi = (): UseDogApi => {
   const config = useRuntimeConfig();
 
   const loadImages = () =>
-    useFetch<RandomDogImages>(`${config.dogApiBaseUrl}breeds/image/random/50`);
+    useFetch<RandomDogImages>(
+      `${config.public.dogApiBaseUrl}breeds/image/random/50`,
+    );
 
   return {
     loadImages,

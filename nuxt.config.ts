@@ -3,9 +3,12 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt'],
 
   runtimeConfig: {
-    catApiBaseUrl: '',
-    catApiKey: '',
-    dogApiBaseUrl: '',
+    public: {
+      catApiBaseUrl: '',
+      catApiKey: '',
+      dogApiBaseUrl: '',
+    },
+  },
 
   build: {
     transpile: ['@headlessui/vue'],
