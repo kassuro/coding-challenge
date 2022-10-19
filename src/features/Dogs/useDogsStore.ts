@@ -2,16 +2,19 @@ import { defineStore } from 'pinia';
 
 import { RandomDogImages } from '@/features/Dogs/types';
 import { useDogApi } from '@/features/Dogs/useDogApi';
+import { getBreedFromUrl } from '@/features/Dogs/utils';
 
 interface DogStoreState {
   data: RandomDogImages['message'];
   filterValue: string;
+  selected: string | null;
 }
 
 export const useDogsStore = defineStore('DogStore', {
   state: (): DogStoreState => ({
     data: [],
     filterValue: '',
+    selected: null,
   }),
 
   actions: {
@@ -27,7 +30,7 @@ export const useDogsStore = defineStore('DogStore', {
   getters: {
     filteredImageLinks(state) {
       return state.data.filter((imgUrl) => {
-        const breed = imgUrl.split('breeds/')[1].split('/')[0].toLowerCase();
+        const breed = getBreedFromUrl(imgUrl);
 
         return breed.includes(state.filterValue.toLowerCase());
       });

@@ -5,13 +5,26 @@
     </div>
 
     <div class="flex flex-col justify-center items-center">
-      Breed: {{ breed }}
+      <div class="flex-grow flex flex-col justify-center items-center">
+        Breed: {{ breed }}
+      </div>
+
+      <NuxtLink to="/" class="self-end justify-self-end">
+        <button
+          class="border border-blue-700 rounded-md px-3 py-1 bg-lue-500 text-gray-700"
+          type="button"
+        >
+          Zurück
+        </button>
+      </NuxtLink>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { useCatsStore } from '@/features/Cats/useCatsStore';
+import { useDogsStore } from '@/features/Dogs/useDogsStore';
+import { getBreedFromUrl } from '@/features/Dogs/utils';
 
 const router = useRouter();
 const route = useRoute();
@@ -38,5 +51,11 @@ if (kind === 'cat') {
   if (store.selected.breeds.length > 0) {
     breed = store.selected.breeds.map(({ name }) => name).join(', ');
   }
+}
+if (kind === 'dog') {
+  const store = useDogsStore();
+
+  imgUrl = store.selected;
+  breed = getBreedFromUrl(imgUrl);
 }
 </script>

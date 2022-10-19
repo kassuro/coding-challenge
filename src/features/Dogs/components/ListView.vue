@@ -15,7 +15,11 @@
 
     <ImageList :data="dogStore.filteredImageLinks">
       <template v-slot="{ item }">
-        <ImageListItem :src="(item as string) " alt="A picture of a dog" />
+        <ImageListItem
+          :src="(item as string) "
+          alt="A picture of a dog"
+          @click="selectDog(item as string)"
+        />
       </template>
     </ImageList>
   </div>
@@ -24,5 +28,12 @@
 <script lang="ts" setup>
 import { useDogsStore } from '@/features/Dogs/useDogsStore';
 
+const router = useRouter();
 const dogStore = useDogsStore();
+
+const selectDog = (item: string) => {
+  dogStore.selected = item;
+
+  router.push('details/dog');
+};
 </script>
