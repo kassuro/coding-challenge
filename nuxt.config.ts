@@ -6,5 +6,8 @@ export default defineNuxtConfig({
     catApiBaseUrl: '',
     catApiKey: '',
     dogApiBaseUrl: '',
+
+  build: {
+    transpile: ['@headlessui/vue'],
   },
 });

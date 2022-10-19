@@ -25,5 +25,4 @@
 import { useDogsStore } from '@/features/Dogs/useDogsStore';
 
 const dogStore = useDogsStore();
-dogStore.loadImages();
 </script>

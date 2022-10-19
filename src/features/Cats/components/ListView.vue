@@ -29,6 +29,4 @@ import { useCatsStore } from '@/features/Cats/useCatsStore';
 import { isCatImage } from '@/features/Cats/types';
 
 const catsStore = useCatsStore();
-
-catsStore.loadImages();
 </script>
